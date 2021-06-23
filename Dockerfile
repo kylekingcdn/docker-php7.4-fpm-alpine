@@ -3,10 +3,9 @@ FROM php:7.4-fpm-alpine
 # Install production dependencies
 RUN apk add --no-cache --update \
       libpng \
+      libzip \
       openssh \
-      zlib \
-      zip \
-      unzip
+      zlib
 
 # Install build dependencies
 RUN apk add --no-cache --virtual .build-deps \
