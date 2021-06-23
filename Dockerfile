@@ -20,6 +20,7 @@ RUN docker-php-ext-install --jobs "$(nproc)" \
       bcmath \
       exif \
       gd \
+      pcntl \
       pdo \
       pdo_mysql \
       zip
