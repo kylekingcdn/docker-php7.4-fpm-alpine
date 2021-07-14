@@ -10,15 +10,19 @@ RUN apk add --no-cache --update \
 # Install build dependencies
 RUN apk add --no-cache --virtual .build-deps \
       ${PHPIZE_DEPS} \
+      icu-dev \
       libpng-dev  \
       libzip-dev \
       zlib-dev
 
 # Install php extensions
-RUN docker-php-ext-install --jobs "$(nproc)" \
+RUN docker-php-ext-configure \
+      zip && \
+    docker-php-ext-install --jobs "$(nproc)" \
       bcmath \
       exif \
       gd \
+      intl \
       pcntl \
       pdo \
       pdo_mysql \
