@@ -25,6 +25,7 @@ RUN docker-php-ext-install --jobs "$(nproc)" \
       zip && \
     pecl install \
       redis && \
+    pecl clear-cache && \
     docker-php-ext-enable \
       redis
 
