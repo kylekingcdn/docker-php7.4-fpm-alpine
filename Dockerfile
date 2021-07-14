@@ -1,5 +1,7 @@
 FROM php:7.4-fpm-alpine
 
+ARG APCU_VERSION=5.1.19
+
 # Install production dependencies
 RUN apk add --no-cache --update \
       libpng \
@@ -28,9 +30,12 @@ RUN docker-php-ext-configure \
       pdo_mysql \
       zip && \
     pecl install \
+      apcu-${APCU_VERSION} \
       redis && \
     pecl clear-cache && \
     docker-php-ext-enable \
+      apcu \
+      opcache \
       redis
 
 # Purge build dependencies and temp files
