@@ -22,11 +22,11 @@ RUN docker-php-ext-install --jobs "$(nproc)" \
       pcntl \
       pdo \
       pdo_mysql \
-      zip
-
-# Install redis php extension
-RUN pecl install redis && \
-    docker-php-ext-enable redis
+      zip && \
+    pecl install \
+      redis && \
+    docker-php-ext-enable \
+      redis
 
 # Purge build dependencies and temp files
 RUN apk del -f .build-deps && \
