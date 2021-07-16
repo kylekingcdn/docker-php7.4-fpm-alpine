@@ -9,6 +9,7 @@ RUN apk add --no-cache --update \
       libpng \
       libzip \
       openssh \
+      openssl \
       zlib
 
 # Install build dependencies
