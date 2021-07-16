@@ -4,6 +4,7 @@ ARG APCU_VERSION=5.1.19
 
 # Install production dependencies
 RUN apk add --no-cache --update \
+      acl \
       icu-libs \
       libpng \
       libzip \
