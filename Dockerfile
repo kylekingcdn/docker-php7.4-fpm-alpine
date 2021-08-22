@@ -34,10 +34,12 @@ RUN docker-php-ext-configure \
       pdo_mysql \
       zip && \
     pecl install \
+      amqp \
       apcu-${APCU_VERSION} \
       redis && \
     pecl clear-cache && \
     docker-php-ext-enable \
+      amqp \
       apcu \
       opcache \
       redis
