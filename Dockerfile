@@ -11,6 +11,7 @@ RUN apk add --no-cache --update \
       libzip \
       openssh \
       openssl \
+      rabbitmq-c \
       zlib
 
 # Install build dependencies
@@ -19,6 +20,7 @@ RUN apk add --no-cache --virtual .build-deps \
       icu-dev \
       libpng-dev  \
       libzip-dev \
+      rabbitmq-c-dev \
       zlib-dev
 
 # Install php extensions
