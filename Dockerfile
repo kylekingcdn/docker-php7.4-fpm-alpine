@@ -7,6 +7,7 @@ RUN apk add --no-cache --update \
       acl \
       git \
       icu-libs \
+      imap-dev \
       libpng \
       libzip \
       openssh \
@@ -20,16 +21,20 @@ RUN apk add --no-cache --virtual .build-deps \
       icu-dev \
       libpng-dev  \
       libzip-dev \
+      openssl-dev \
       rabbitmq-c-dev \
       zlib-dev
 
 # Install php extensions
 RUN docker-php-ext-configure \
       zip && \
+    docker-php-ext-configure \
+      imap --with-imap-ssl && \
     docker-php-ext-install --jobs "$(nproc)" \
       bcmath \
       exif \
       gd \
+      imap \
       intl \
       pcntl \
       pdo \
