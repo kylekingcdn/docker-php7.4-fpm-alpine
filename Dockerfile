@@ -23,10 +23,8 @@ RUN apk add --no-cache --virtual .build-deps \
       libzip-dev \
       openssl-dev \
       rabbitmq-c-dev \
-      zlib-dev
-
-# Install php extensions
-RUN docker-php-ext-configure \
+      zlib-dev && \
+    docker-php-ext-configure \
       zip && \
     docker-php-ext-configure \
       imap --with-imap-ssl && \
