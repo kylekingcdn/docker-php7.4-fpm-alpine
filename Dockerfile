@@ -49,8 +49,6 @@ RUN docker-php-ext-configure \
       amqp \
       apcu \
       opcache \
-      redis
-
-# Purge build dependencies and temp files
-RUN apk del -f .build-deps && \
+      redis && \
+    apk del -f .build-deps && \
     rm -rf /tmp/*
