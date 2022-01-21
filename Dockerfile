@@ -1,6 +1,6 @@
 FROM php:7.4-fpm-alpine
 
-ARG APCU_VERSION=5.1.19
+ARG APCU_VERSION=5.1.21
 
 # Install production dependencies
 RUN apk add --no-cache --update \
