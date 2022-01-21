@@ -21,6 +21,9 @@ pipeline {
             }
         }
         stage('Push Images') {
+            when {
+                environment name: 'GIT_BRANCH', value: 'main'
+            }
             steps {
                 script {
                     docker.withRegistry('', registry_credentials) {
