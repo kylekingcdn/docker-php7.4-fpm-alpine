@@ -15,7 +15,7 @@ RUN apk add --no-cache --update \
       rabbitmq-c \
       zlib
 
-# Install build dependencies
+# Install build dependencies (xdebug is installed but not enabled)
 RUN apk add --no-cache --virtual .build-deps \
       ${PHPIZE_DEPS} \
       icu-dev \
@@ -41,7 +41,8 @@ RUN apk add --no-cache --virtual .build-deps \
     pecl install \
       amqp \
       apcu-${APCU_VERSION} \
-      redis && \
+      redis \
+      xdebug && \
     pecl clear-cache && \
     docker-php-ext-enable \
       amqp \
