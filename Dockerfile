@@ -41,6 +41,7 @@ RUN apk add --no-cache --virtual .build-deps \
     pecl install \
       amqp \
       apcu-${APCU_VERSION} \
+      pcov \
       redis \
       xdebug && \
     pecl clear-cache && \
