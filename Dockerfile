@@ -1,7 +1,5 @@
 FROM php:7.4-fpm-alpine
 
-ARG APCU_VERSION=5.1.21
-
 # Install production dependencies
 RUN apk add --no-cache --update \
       acl \
@@ -40,14 +38,12 @@ RUN apk add --no-cache --virtual .build-deps \
       zip && \
     pecl install \
       amqp \
-      apcu-${APCU_VERSION} \
       pcov \
       redis \
       xdebug && \
     pecl clear-cache && \
     docker-php-ext-enable \
       amqp \
-      apcu \
       opcache \
       redis && \
     apk del -f .build-deps && \
