@@ -5,7 +5,9 @@ RUN apk add --no-cache --update \
       acl \
       git \
       icu-libs \
+      imagemagick \
       imap-dev \
+      libgomp \
       libpng \
       libzip \
       openssh \
@@ -17,6 +19,7 @@ RUN apk add --no-cache --update \
 RUN apk add --no-cache --virtual .build-deps \
       ${PHPIZE_DEPS} \
       icu-dev \
+      imagemagick-dev \
       libpng-dev  \
       libzip-dev \
       openssl-dev \
@@ -38,12 +41,14 @@ RUN apk add --no-cache --virtual .build-deps \
       zip && \
     pecl install \
       amqp \
+      imagick \
       pcov \
       redis \
       xdebug && \
     pecl clear-cache && \
     docker-php-ext-enable \
       amqp \
+      imagick \
       opcache \
       redis && \
     apk del -f .build-deps && \
